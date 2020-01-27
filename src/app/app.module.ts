@@ -1,38 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpInterceptorService } from './common/http.interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserdashboardComponent } from './userdashboard/userdashboard.component';
-import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import {FormsModule} from '@angular/forms';
-import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http'
-import {UserService} from './user.service'; 
-import { AuthGuard } from './auth.guard';
-import {LoginAuthService} from './login-auth.service';
+import { AuthGuard } from './common/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserdashboardComponent,
-    AdmindashboardComponent,
-    LoginComponent,
-    SignupComponent,
-    HomeComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPermissionsModule.forRoot({
+    }),
   ],
   providers: [
-    UserService,
     AuthGuard,
-    LoginAuthService
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

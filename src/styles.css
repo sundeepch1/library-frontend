@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+.cust-border-color{
+    border-color: #0040ff;
+}
+
+.cust-background-color{
+    background-color: #0040ff;
+}
+
+.cust-text-color{
+    color: white;
+}
+
+.cust-danger-color{
+    background-color: #cc0000;
+}
+
+.cust-danger-border-color{
+    border-color: #cc0000;
+}
+
+.float-right{
+    float: right;
+}
+
+hr{
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.header2-mb{
+    margin-bottom: -4px;
+}
+
+.cust-pointer{
+    cursor: pointer;
+}
+
+a:hover {
+    color: #00134d;
+  }
+
+

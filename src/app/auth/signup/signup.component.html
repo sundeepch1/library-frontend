@@ -1,0 +1,54 @@
+<div class="container-fluid mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card cust-border-color">
+                <div class="card-header cust-background-color">
+                    <h4 class="text-center cust-text-color">Library Management System</h4>
+                    <hr>
+                    <h6 class="text-center cust-text-color header2-mb">Register Yourself</h6>
+                </div>
+                <div class="card-body">
+                    <form #userForm="ngForm">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName"
+                                name="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName"
+                                name="lastName">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" [(ngModel)]="user.password"
+                                name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="user.phoneNumber"
+                                name="phoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select class="form-control" id="role" [(ngModel)]="user.role" name="role">
+                                <option value="ADMIN">ADMIN</option>
+                                <option value="USER">USER</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn cust-background-color cust-border-color cust-text-color"
+                                (click)="saveUser(user, userForm)">Submit</button>
+                            <button type="button" class="btn cust-danger-color cust-danger-border-color cust-text-color float-right"
+                                [routerLink]="['/home']">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

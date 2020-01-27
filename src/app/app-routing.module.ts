@@ -1,19 +1,34 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
-import { AuthGuard } from './auth.guard';
-import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { AuthGuard } from './common/auth.guard';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'admindashboard', component: AdmindashboardComponent, canActivate:[AuthGuard]},
-  {path: 'userdashboard', component: UserdashboardComponent, canActivate:[AuthGuard]},
-  {path:'**', pathMatch:'full', redirectTo:'home'}
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule',
+  },
+  {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule',
+  },
+  {
+    path: 'user',
+    loadChildren: './user/user.module#UserModule',
+    canActivate: [AuthGuard]
+  },
+  {
+    path : 'dashboard',
+    loadChildren: './dashboard/dashboard.module#DashboardModule',
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'',
+    redirectTo:'home',
+    pathMatch: 'full'
+  },
+  // { path: '**', 
+  // component: PageNotFoundComponent 
+  // }
 ];
 
 @NgModule({
