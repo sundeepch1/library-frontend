@@ -12,11 +12,17 @@ export class AuthGuard implements CanActivate{
  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
     if(this.isAuthenticated()){
         this.getUserRole();
+
+        // if (route.data.roles && route.data.roles.indexOf(currentUser.role) === -1) {
+        //     // role not authorised so redirect to home page
+        //     this.router.navigate(['/']);
+        //     return false;
+        // }
+
         return true;
-    }else{
-        this.router.navigate(['/home']);
-        return false;
     }
+    this.router.navigate(['/home']);
+    return false;
  }
 
     isAuthenticated():boolean{
