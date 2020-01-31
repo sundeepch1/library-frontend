@@ -15,10 +15,10 @@ const routes: Routes = [
     path: 'user',
     loadChildren: './user/user.module#UserModule',
     canActivate: [AuthGuard]
-  },
+  },  
   {
-    path : 'dashboard',
-    loadChildren: './dashboard/dashboard.module#DashboardModule',
+    path: 'manage',
+    loadChildren: './manage-user/manage-user.module#ManageUserModule',
     canActivate: [AuthGuard]
   },
   {

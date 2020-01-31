@@ -20,10 +20,10 @@ export class SigninComponent implements OnInit {
     this.authService.loginUser(user).subscribe((response)=>{
       if(response.token){
         localStorage.setItem('currentUser', JSON.stringify(response));
-        if(response.user.role == 'ADMIN'){
-          this.router.navigate(['/dashboard/admin-dashboard']);
+        if(response.user.role == 'ADMIN' || response.user.role == 'ADMIN'){
+          this.router.navigate(['/manage-user']);
         }else{
-          this.router.navigate(['/dashboard/user-dashboard']);
+          this.router.navigate(['/user/user-details']);
         }
       }
     })

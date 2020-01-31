@@ -12,12 +12,12 @@ const userRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'users',
-    component: UserListComponent,
+    path: 'user-details',
+    component: UserDetailsComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'user-details',
+    path: 'user-edit',
     component: UserDetailsComponent,
     canActivate: [AuthGuard]
   }
