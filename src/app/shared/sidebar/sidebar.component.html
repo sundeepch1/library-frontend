@@ -1,0 +1,20 @@
+<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>*ngxPermissionsOnly="['ADMIN']"
+</button> -->
+<div *ngIf="!manageUser">
+    <ul class="list-group">
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/user-details']">Profile Details</a>
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/edit-profile']">Edit Profile</a>
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/change-password']">Change Password</a>
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/generate-report']">Generate Report</a>
+    </ul>
+</div>
+<div *ngIf="manageUser">
+    <ul class="list-group">
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/user-details']">manage</a>
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/edit-profile']">Edit Profile</a>
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/change-password']">Change Password</a>
+          <a class="list-group-item list-group-item-action cust-background-color cust-text-color" [routerLink]="['/user/generate-report']">Generate Report</a>
+    </ul>
+</div>

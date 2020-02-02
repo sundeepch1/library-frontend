@@ -1,2 +1,17 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet> 
+<app-navbar  *ngIf="!hideShowHeader" [currentUserStatus]="routerOutlet"></app-navbar>
+<div *ngIf="routerOutlet; else outlet">
+    <div class="container-fluid">
+        <hr style="margin-bottom: 0px;">
+        <div class="row">
+            <div *ngIf="!manageUser" class="col-md-3 cust-background-color">
+                <app-sidebar [manageUser]="manageUser"></app-sidebar> 
+            </div>
+            <div [ngClass]="manageUser== true?'col-md-12':'col-md-9'">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #outlet>
+    <router-outlet></router-outlet> 
+</ng-template>

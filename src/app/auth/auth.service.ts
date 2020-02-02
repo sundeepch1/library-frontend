@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
 
   private subject = new Subject<any>();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private permissionsService: NgxPermissionsService) { }
 
   saveUser(user:any): Observable <any>{
     const headers = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
@@ -32,5 +33,6 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('currentUser');
+    this.permissionsService.flushPermissions();
   }
 }

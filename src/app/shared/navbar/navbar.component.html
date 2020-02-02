@@ -1,26 +1,25 @@
-
-  <nav *ngIf="!hideShowHeader" class="navbar navbar-expand-lg cust-background-color">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand cust-text-color" [routerLink]="['/home']">Library Management System</a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active" *ngxPermissionsOnly="['ADMIN']">
-          <a class="nav-link cust-text-color" href="#">ADMIN</a>
-        </li>
-        <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'GUEST']">
-          <a class="nav-link cust-text-color" href="#">USER</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link cust-text-color" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <a class="nav-link cust-text-color" [routerLink]="['/auth/signup']" *ngIf="!currentStatus">Sign Up</a>
-        <a class="nav-link cust-text-color" [routerLink]="['/auth/signin']" *ngIf="!currentStatus">Login</a>
-        <a class="nav-link text-white cust-pointer" (click)="logout()" *ngIf="currentStatus">Logout</a>
-      </form>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-lg cust-background-color">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand cust-text-color" [routerLink]="['/home']">Library Management System</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active" *ngxPermissionsOnly="['ADMIN','LIBRARIAN','USER']">
+        <a class="nav-link cust-text-color" [routerLink]="['/user/user-details']">User Service</a>
+      </li>
+      <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'LIBRARIAN']">
+        <a class="nav-link cust-text-color" [routerLink]="['manage/manage-user']">Manage User</a>
+      </li>
+      <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
+        <a class="nav-link cust-text-color" href="#">Manage Book</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="nav-link cust-text-color" [routerLink]="['/auth/signup']" *ngIf="!currentUserStatus">Sign Up</a>
+      <a class="nav-link cust-text-color" [routerLink]="['/auth/signin']" *ngIf="!currentUserStatus">Login</a>
+      <a class="nav-link text-white cust-pointer" (click)="logout()" *ngIf="currentUserStatus">Logout</a>
+    </form>
+  </div>
+</nav>

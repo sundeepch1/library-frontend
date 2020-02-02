@@ -8,11 +8,13 @@ import { AuthGuard } from './common/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

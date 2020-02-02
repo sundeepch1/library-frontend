@@ -12,6 +12,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         if (localStorage.getItem('currentUser')) {
             this.loginuser = JSON.parse(localStorage.getItem('currentUser'));
             let tokenStr = 'Bearer ' + this.loginuser.token;
+            
             req = req.clone({
                 setHeaders: {
                     Authorization: tokenStr

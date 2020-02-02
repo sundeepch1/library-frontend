@@ -3,13 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { GenerateReportComponent } from './generate-report/generate-report.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
   declarations: [
     UserDetailsComponent,
-    UserListComponent],
+    EditProfileComponent,
+    GenerateReportComponent,
+    ChangePasswordComponent
+    ],
   imports: [
     CommonModule,
     UserRoutingModule

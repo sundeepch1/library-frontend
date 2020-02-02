@@ -21,7 +21,7 @@ export class SigninComponent implements OnInit {
       if(response.token){
         localStorage.setItem('currentUser', JSON.stringify(response));
         if(response.user.role == 'ADMIN' || response.user.role == 'ADMIN'){
-          this.router.navigate(['/manage-user']);
+          this.router.navigate(['/manage/manage-user']);
         }else{
           this.router.navigate(['/user/user-details']);
         }

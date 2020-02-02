@@ -1,24 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AuthGuard } from '../common/auth.guard';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { GenerateReportComponent } from './generate-report/generate-report.component';
 
 
 const userRoutes: Routes = [
-  {
-    path : '',
-    component: UserListComponent,
-    canActivate: [AuthGuard]
-  },
   {
     path: 'user-details',
     component: UserDetailsComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'user-edit',
-    component: UserDetailsComponent,
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'generate-report',
+    component: GenerateReportComponent,
     canActivate: [AuthGuard]
   }
 ];
