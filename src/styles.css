@@ -1,9 +1,21 @@
 .cust-border-color{
-    border-color: #0040ff;
+    border-color: #5db85b;
 }
 
 .cust-background-color{
-    background-color: #0040ff;
+    background-color: #5db85b;
+}
+
+.cust-header-padding{
+    padding: 0px;
+}
+
+.spinner-border{
+    color: #5db85b;
+}
+
+.cust-header-font-size{
+    font-size: 25px
 }
 
 .cust-text-color{
@@ -37,6 +49,10 @@ hr{
 
 a:hover {
     color: #00134d;
-  }
+}
+
+.cust-font-awesome-color{
+    color:#cc0000;
+}
 
 

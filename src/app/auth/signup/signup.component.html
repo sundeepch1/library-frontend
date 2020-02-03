@@ -5,44 +5,62 @@
                 <div class="card-header cust-background-color">
                     <h4 class="text-center cust-text-color">Library Management System</h4>
                     <hr>
-                    <h6 class="text-center cust-text-color header2-mb">Register Yourself</h6>
+                    <h6 class="text-center cust-text-color header2-mb">Sign Up Yourself</h6>
                 </div>
                 <div class="card-body">
-                    <form #userForm="ngForm">
+                    <form [formGroup]="signupForm" class="register-form" (validSubmit)="signup()" name="signupForm">
+                        <div *ngIf="alertMessage" class="alert mb-3 cust-danger-color cust-danger-border-color cust-text-color alert-dismissible fade show" 
+                        role="alert" style="margin-bottom: 0px; border:none; border-radius: 0px;">
+                        <strong>{{alertMessage}}</strong> is already exist.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
                         <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName"
-                                name="firstName">
+                            <label class="control-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" required>
+                          <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName"
-                                name="lastName">
+                            <input type="text" class="form-control" id="lastName" formControlName="lastName" name="lastName" required>
+                            <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+                            <input type="text" class="form-control" id="email" formControlName="email" name="email" required>
+                            <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" [(ngModel)]="user.password"
-                                name="password">
+                            <input type="password" class="form-control" id="password" formControlName="password"
+                                name="password" required>
+                            <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
                             <label for="phoneNumber">Phone Number</label>
-                            <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="user.phoneNumber"
-                                name="phoneNumber">
+                            <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"
+                                name="phoneNumber" required>
+                                <bfv-messages></bfv-messages>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date Of Birth</label>
+                            <input type="text" bsDatepicker class="form-control" id="dateOfBirth" formControlName="dateOfBirth"
+                                name="dateOfBirth" required>
+                                <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
                             <label for="role">Role</label>
-                            <select class="form-control" id="role" [(ngModel)]="user.role" name="role">
-                                <option value="ADMIN">ADMIN</option>
-                                <option value="USER">USER</option>
+                            <select class="form-control" id="role" formControlName="role" name="role" required>
+                                <option value="" selected disabled>Select role</option>
+                                <option value="TEACHER">Teacher</option>
+                                <option value="STUDENT">Student</option>
                             </select>
+                            <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn cust-background-color cust-border-color cust-text-color"
-                                (click)="saveUser(user, userForm)">Submit</button>
+                            (ngSubmit)="signup()">Submit</button>
                             <button type="button" class="btn cust-danger-color cust-danger-border-color cust-text-color float-right"
                                 [routerLink]="['/home']">Cancel</button>
                         </div>

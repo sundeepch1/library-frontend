@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <a class="navbar-brand cust-text-color" [routerLink]="['/home']">Library Management System</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active" *ngxPermissionsOnly="['ADMIN','LIBRARIAN','USER']">
+      <li class="nav-item active" *ngxPermissionsOnly="['ADMIN','LIBRARIAN','USER','TEACHER']">
         <a class="nav-link cust-text-color" [routerLink]="['/user/user-details']">User Service</a>
       </li>
       <li class="nav-item" *ngxPermissionsOnly="['ADMIN', 'LIBRARIAN']">

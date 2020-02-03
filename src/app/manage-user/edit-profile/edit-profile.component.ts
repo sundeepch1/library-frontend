@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/common/common.service';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { UserService } from '../..//user/user.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -81,7 +81,7 @@ export class EditProfileComponent implements OnInit {
     userData['createdDate']= this.userInfo.createdDate;
     userData['enabled'] = this.userInfo.enabled;
     this.userService.updateUser(userData).subscribe(response =>{
-        this.router.navigate(['/user/user-details']);
+        this.router.navigate(['/manage/user-details', this.userId])
     },error => {
       this.toastrService.error('Try later');
     })

@@ -1,1 +1,44 @@
-<p>user-list works!</p>
+<div class="card cust-border-color mt-3">
+    <div class="card-header text-center cust-background-color cust-text-color cust-header-padding cust-header-font-size">
+        User Details
+    </div>
+    <div *ngIf="!userList" class="card-body">
+        <div class="text-center">
+            <div class="spinner-border m-5" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+    </div>
+    <div *ngIf="userList" class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <th scope="row">First Name</th>
+                <th scope="row">Last Name</th>
+                <th scope="row">Email</th>
+                <th scope="row">Date Of Birth</th>
+                <th scope="row">Phone Number</th>
+                <th scope="row">Status</th>
+                <th scope="row">Created Date</th>
+                <th scope="row">Role</th>
+                <th scope="row">Action</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of userList;">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td><a [routerLink]="['/manage/user-details', user.id]" tooltip="Manage user" placement="bottom">{{user.email}}</a></td>
+                <td>{{user.dateOfBirth | date}}</td>
+                <td>{{user.phoneNumber}}</td>
+                <td>{{user.enabled}}</td>
+                <td>{{user.createdDate | date}}</td>
+                <td >{{user.role | titlecase}}</td>
+                <td style="cursor: pointer;" [attr.disabled]="true" tooltip="Delete user" placement="bottom">
+                    <button [disabled]="user.role=='ADMIN'" class="btn cust-background-color" (click)="deleteUserById(user)">
+                        <span class="fa fa-trash cust-font-awesome-color"></span>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table> 
+    </div>
+</div>

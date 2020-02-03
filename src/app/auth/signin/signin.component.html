@@ -5,21 +5,23 @@
                 <div class="card-header cust-background-color">
                     <h4 class="text-center cust-text-color">Library Management System</h4>
                     <hr>
-                    <h6 class="text-center cust-text-color header2-mb">Sign Up Yourself</h6>
+                    <h6 class="text-center cust-text-color header2-mb">Sign In Yourself</h6>
                 </div>
                 <div class="card-body">
-                    <form #userForm="ngForm">
+                    <form [formGroup]="signinForm" (validSubmit)="signin()">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+                            <input type="text" class="form-control" id="email" formControlName="email" name="email">
+                            <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" [(ngModel)]="user.password"
+                            <input type="password" class="form-control" id="password" formControlName="password"
                                 name="password">
+                            <bfv-messages></bfv-messages>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn cust-background-color cust-border-color cust-text-color" (click)="loginUser(user)">Submit</button>
+                            <button type="submit" class="btn cust-background-color cust-border-color cust-text-color" ((ngSubmit)="signin()">Submit</button>
                             <button type="button" class="btn cust-danger-color cust-danger-border-color cust-text-color float-right"
                             [routerLink]="['/home']">Cancel</button>
                         </div>

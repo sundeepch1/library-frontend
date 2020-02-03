@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../user.service';
 import { CommonService } from 'src/app/common/common.service';
 import { ToastrService } from 'ngx-toastr'; 
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-user-details',
